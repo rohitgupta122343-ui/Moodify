@@ -1,0 +1,332 @@
+.player-container-vertical {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+  border-radius: 20px 20px 0 0;
+  padding: 20px;
+  z-index: 1000;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  height: 30vh;
+}
+
+.player-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.player-poster-vertical {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.player-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+
+.player-info-vertical {
+  .song-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 4px 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .song-mood {
+    font-size: 12px;
+    opacity: 0.9;
+    margin: 0;
+    text-transform: capitalize;
+  }
+}
+
+.progress-section-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  .progress-bar-vertical {
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    -webkit-appearance: none;
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: white;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    &::-moz-range-thumb {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: white;
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  .time-display-vertical {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    opacity: 0.85;
+
+    span {
+      font-weight: 500;
+    }
+  }
+}
+
+.controls-section-vertical {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  .control-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 20px;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(1.1);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+
+    .icon {
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    .label {
+      font-size: 8px;
+      font-weight: 600;
+      opacity: 0.8;
+    }
+  }
+
+  .backward-btn-vertical {
+    width: 45px;
+    height: 45px;
+  }
+
+  .play-btn-vertical {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.3);
+    border: 2px solid white;
+    font-size: 28px;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.4);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+    }
+
+    &.playing {
+      animation: pulse 0.6s infinite;
+    }
+  }
+
+  .forward-btn-vertical {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+  }
+
+  50% {
+    box-shadow: 0 0 0 8px rgba(255, 255, 255, 0);
+  }
+}
+
+.secondary-controls-vertical {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+
+  .speed-control-vertical {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    label {
+      font-size: 12px;
+      font-weight: 500;
+      opacity: 0.9;
+    }
+
+    .speed-select-vertical {
+      padding: 4px 8px;
+      border-radius: 4px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      font-size: 11px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      outline: none;
+
+      &:hover {
+        border-color: rgba(255, 255, 255, 0.5);
+        background: rgba(255, 255, 255, 0.15);
+      }
+
+      &:focus {
+        border-color: white;
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      option {
+        background: #667eea;
+        color: white;
+      }
+    }
+  }
+
+  .volume-control-vertical {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    label {
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .volume-slider-vertical {
+      width: 80px;
+      height: 4px;
+      border-radius: 2px;
+      outline: none;
+      background: rgba(255, 255, 255, 0.3);
+      cursor: pointer;
+      -webkit-appearance: none;
+
+      &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: white;
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+
+      &::-moz-range-thumb {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: white;
+        cursor: pointer;
+        border: none;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+
+
+
+  .player-container-vertical {
+    padding: 15px;
+  }
+
+  .player-content {
+    gap: 15px;
+  }
+
+  .player-poster-vertical {
+    width: 60px;
+    height: 60px;
+    
+  }
+
+  .controls-section-vertical {
+    gap: 15px;
+
+    .play-btn-vertical {
+      width: 50px;
+      height: 50px;
+      font-size: 24px;
+
+      .icon {
+        font-size: 18px;
+      }
+    }
+
+    .backward-btn-vertical,
+    .forward-btn-vertical {
+      width: 40px;
+      height: 40px;
+      font-size: 16px;
+    }
+  }
+
+  .secondary-controls-vertical {
+    gap: 20px;
+  }
+
+  .player-poster-vertical{
+    display: none;
+  }
+
+  
+}
+
